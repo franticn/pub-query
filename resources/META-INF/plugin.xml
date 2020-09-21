@@ -1,0 +1,37 @@
+<idea-plugin>
+    <id>com.frantic.pub-query</id>
+    <name>PubQuery</name>
+    <version>1.0</version>
+    <vendor email="fang.xc@outlook.com" url="http://frantic.ink">Frantic</vendor>
+
+    <description><![CDATA[
+      A plugin help you query flutter packages in pub server.<br>
+    ]]></description>
+
+    <change-notes><![CDATA[
+      <p><li><strong>1.0 </strong>Completed the function of finding and replacing the latest version of Google Library.</li></p>
+      <br>
+    ]]>
+    </change-notes>
+
+    <!-- please see https://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html for description -->
+    <idea-version since-build="173.0"/>
+
+    <!-- please see https://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+         on how to target different products -->
+    <depends>com.intellij.modules.lang</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <completion.contributor language="any" order="first"
+                                implementationClass="com.frantic.pubquery.YamlCompletionContributor"/>
+    </extensions>
+
+    <actions>
+        <action id="com.frantic.pubquery.action.QueryAction" class="com.frantic.pubquery.action.QueryAction"
+                text="Query Available Versions" description="Query available versions">
+            <add-to-group group-id="XmlGenerateToolsGroup" anchor="last"/>
+<!--            <keyboard-shortcut keymap="$default" first-keystroke="control alt Q"/>-->
+        </action>
+    </actions>
+
+</idea-plugin>
